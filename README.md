@@ -17,7 +17,7 @@ Em suma, React Hooks são uma nova adição ao React 16.8 que permitem que você
 O hook useState permite que você crie um estado para seu componente React. Ele é usado para armazenar dados que podem ser alterados pelo usuário ou por outros eventos.
 
 Exemplo:
-```
+```js
 const [name, setName] = useState('');
 ```
 
@@ -25,7 +25,7 @@ const [name, setName] = useState('');
 O hook useEffect é usado para executar efeitos colaterais em seu componente React. Ele é chamado após cada renderização do componente e pode ser usado para executar tarefas como fazer solicitações de API, ouvir eventos do mouse ou teclado, etc.
 
 Exemplo:
-```
+```js
 // useEffect com dependência
 import { useState, useEffect } from 'react';
 
@@ -48,7 +48,7 @@ function App() {
 }
 ```
 
-```
+```js
 // useEffect sem dependência
 import { useState, useEffect } from 'react';
 
@@ -74,7 +74,7 @@ function App() {
 3. useContext: O hook useContext é usado para acessar o contexto do React. Ele é usado para compartilhar dados entre componentes sem ter que passar os dados manualmente por toda a árvore de componentes.
 
 Exemplo:
-```
+```js
 const context = useContext(MyContext);
 ```
 
@@ -91,7 +91,7 @@ como criar um hook customizado com exeplos de uso:
 Um hook customizado é um hook criado por você para reutilizar lógica em seus componentes React. Você pode criar hooks customizados para qualquer tipo de lógica que você deseja reutilizar em seus componentes.
 
 Exemplo:
-```
+```js
 // useCounter.js
 import { useState } from 'react';
 
@@ -110,7 +110,7 @@ export default function useCounter(initialCount = 0) {
 }
 ```
 
-```
+```js
 // App.js
 import React from 'react';
 import useCounter from './useCounter';
