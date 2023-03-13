@@ -18,7 +18,19 @@ O hook useState permite que você crie um estado para seu componente React. Ele 
 
 Exemplo:
 ```js
-const [name, setName] = useState('');
+import React, { useState } from 'react';
+
+function App() {
+  // Declara uma nova variável de state, que chamaremos de "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Você clicou {count} vezes</p>
+      <button onClick={() => setCount(count + 1)}>
+        Clique aqui
+      </button>
+    </div>
 ```
 
 ## useEffect
@@ -75,7 +87,24 @@ function App() {
 
 Exemplo:
 ```js
-const context = useContext(MyContext);
+import React, { useContext } from 'react';
+
+// Criamos o contexto
+const MyContext = React.createContext();
+
+function App() {
+
+  // Usamos o useContext para ler os dados do contexto
+  const value = useContext(MyContext);
+
+  return (
+    <div>
+      <p>{value}</p>
+    </div>
+  );
+}
+
+export default App;
 ```
 
 ## useReducer
@@ -83,7 +112,41 @@ O hook useReducer é usado para gerenciar o estado de seu componente React. Ele 
 
 Exemplo:
 
-const [state, dispatch] = useReducer(reducer, initialState);
+```js
+import React, { useReducer } from 'react';
+
+// Criamos o reducer
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+};
+
+function App() {
+
+  // Usamos o useReducer para gerenciar o estado
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <div>
+      <p>Você clicou {state.count} vezes</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>
+        +
+      </button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>
+        -
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
 
 como criar um hook customizado com exeplos de uso:
 
